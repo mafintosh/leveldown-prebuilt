@@ -1,5 +1,5 @@
 {
-  "name": "leveldown-hyper",
+  "name": "leveldown-hyper-prebuilt",
   "description": "A Node.js LevelDB binding, primary backend for LevelUP (HyperDex fork)",
   "version": "0.10.2",
   "contributors": [
@@ -28,8 +28,10 @@
   ],
   "main": "index.js",
   "dependencies": {
+    "node-pre-gyp": "0.5.x",
     "bindings": "~1.1.1",
-    "nan": "~0.6.0"
+    "nan": "~0.6.0",
+    "abstract-leveldown": "^0.11.4"
   },
   "devDependencies": {
     "tap": "~0.4.1",
@@ -38,12 +40,22 @@
     "readfiletree": "~0.0.0",
     "abstract-leveldown": "~0.11.1",
     "monotonic-timestamp": "~0.0.8",
-    "du": "~0.0.1"
+    "du": "~0.0.1",
+    "node-gyp": "~0.12.1"
   },
   "scripts": {
+    "install": "node-pre-gyp install --fallback-to-build",
     "test": "tap test/*-test.js --stderr",
-    "install": "node-gyp rebuild"
+    "prebuild": "node-pre-gyp rebuild && node-pre-gyp package"
   },
   "license": "MIT",
-  "gypfile": true
+  "gypfile": true,
+  "bundledDependencies": [
+    "node-pre-gyp"
+  ],
+  "binary": {
+    "module_name": "leveldown",
+    "module_path": "./build-pre-gyp/",
+    "host": "https://github.com/mafintosh/node-leveldown/releases/download/hyper-0.10.2"
+  }
 }

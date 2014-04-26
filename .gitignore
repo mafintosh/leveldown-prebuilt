@@ -1,5 +1,6 @@
 node_modules/
 build/
+build-pre-gyp/
 bench/
 deps/leveldb/leveldb-basho/
 libleveldb.so
