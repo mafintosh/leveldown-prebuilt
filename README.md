@@ -1,4 +1,6 @@
-# NOTICE
+# UPDATE
+
+## [leveldown](https://github.com/level/leveldown) (>= 1.2.2) now supports prebuilds so you shouldn't have to use this fork anymore
 
 This is an experimental fork of leveldown using prebuild binaries to avoid the compile step when installing from npm.
 To use this fork do
