@@ -27,6 +27,7 @@
       , "include_dirs"  : [
             "<!(node -e \"require('nan')\")"
         ]
+      , "cflags": [ "-include ../src/gcc-preinclude.h" ]
       , "sources": [
             "src/batch.cc"
           , "src/batch_async.cc"
